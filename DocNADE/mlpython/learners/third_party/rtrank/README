@@ -1,0 +1,17 @@
+To use MLPython's interface to RT-Rank's decision tree implementation,
+you'll need to compile a Python extension, which will require Boost.Python,
+Boost.Thread and Boost.Jam.
+
+To access RT-Rank through MLPython, do the following:
+
+1. download RT-Rank 1.5 from here: https://sites.google.com/site/rtranking/download
+2. copy the content of subdirectory cart/ into this package directory
+3. create a Jamroot file by doing ``cp Jamroot.template Jamroot`` in the package directory
+   and edit Jamroot by changing PUT_PATH_TO_BOOST_HERE by the path to your copy 
+   of Boost (e.g. /home/USER/software/boost_1_46_0)
+4. compile Python extension simply by running the command ``bjam release`` in package directory 
+   (requires Boost.Python, Boost.Thread and Boost.Jam)
+5  add path to the package directory to your LD_LIBRARY_PATH environment variable for
+   linux, or DYLD_LIBRARY_PATH for Mac OS X
+
+And that should do it! Try 'import pyrtrank' to see if your installation is working.
